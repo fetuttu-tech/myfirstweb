@@ -3,277 +3,499 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>my portfolio</title>
     <style>
-        /* --- COLOR PALETTE & THEME SETUP --- */
+        /* --- color palette --- */
         :root {
-            /* I fixed the typo #F4ABBB5 to #F4ABBB */
-            --bg-pink: #F4ABBB; 
-            --accent-pink: #F4879B;
+            --pink-sweet: #F4ABBB;
+            --rose-blush: #F4879B;
             --soft-coral: #DD8572;
-            --dark-wine: #742230;
-            --deep-red: #9F283E;
-            --rose: #DF5445;
+            --wine-dark: #742230;
+            --berry-deep: #9F283E;
+            --rose-pop: #DF5445;
         }
 
+        /* --- fonts & basic setup --- */
         body {
-            background-color: var(--bg-pink);
-            /* Cute gradient background */
-            background-image: radial-gradient(circle, var(--bg-pink) 20%, var(--soft-coral) 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark-wine);
+            background-color: var(--pink-sweet);
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.2) 0%, transparent 40%);
+            font-family: 'georgia', 'times new roman', serif;
+            color: var(--wine-dark);
             margin: 0;
             padding: 20px;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
+            line-height: 1.6;
         }
 
-        /* Main Container "The Card" */
+        /* --- main card --- */
         .container {
-            background-color: rgba(255, 255, 255, 0.9);
-            width: 100%;
+            background: linear-gradient(135deg, #fffafb 0%, #fff0f3 100%);
             max-width: 700px;
-            border-radius: 30px;
+            margin: 0 auto;
+            border-radius: 40px;
             padding: 40px;
-            box-shadow: 0 10px 25px rgba(116, 34, 48, 0.2);
-            border: 4px solid var(--accent-pink);
+            border: 5px solid var(--rose-blush);
+            box-shadow: 
+                0 15px 35px rgba(116, 34, 48, 0.15),
+                inset 0 0 60px rgba(244, 171, 187, 0.3);
         }
 
-        /* Typography */
+        /* --- headings --- */
         h1, h2, h3 {
-            font-family: 'Courier New', Courier, monospace; /* Gives a retro/it-girl vibe */
-            color: var(--deep-red);
+            font-family: 'georgia', serif;
+            color: var(--berry-deep);
             text-align: center;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 2.8rem;
+            margin: 10px 0;
+            text-transform: lowercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 0px rgba(223, 84, 69, 0.2);
         }
 
         h2 {
-            border-bottom: 2px dashed var(--soft-coral);
+            border-bottom: 3px dashed var(--soft-coral);
             display: inline-block;
-            padding-bottom: 5px;
-            margin-top: 30px;
-        }
-
-        /* Profile Section */
-        .profile-section {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .profile-pic {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid var(--rose);
-            box-shadow: 0 0 15px var(--soft-coral);
-            margin-bottom: 15px;
-        }
-
-        .school-flex {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            background: #fff0f5;
-            padding: 10px;
-            border-radius: 15px;
-            width: fit-content;
-            margin: 10px auto;
-        }
-
-        .school-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-
-        /* Personality Section */
-        .personality-box {
-            background-color: var(--soft-coral);
-            color: white;
-            padding: 15px;
+            padding: 8px 30px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            background: rgba(255, 240, 245, 0.8);
             border-radius: 20px;
+        }
+
+        p {
             text-align: center;
-            font-weight: bold;
             font-size: 1.1rem;
         }
 
-        /* Hobbies List */
-        ul.hobbies-list {
-            list-style: none;
-            padding: 0;
+        /* --- profile section --- */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        ul.hobbies-list li {
+        .profile-pic {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid var(--rose-pop);
+            box-shadow: 
+                0 8px 20px rgba(116, 34, 48, 0.25),
+                0 0 0 8px rgba(255,255,255,0.5);
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05) rotate(3deg);
+        }
+
+        /* --- age & school --- */
+        .info-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 25px;
+            border: 2px solid var(--pink-sweet);
+        }
+
+        .age-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .school-display {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, var(--wine-dark), var(--berry-deep));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+        }
+
+        .school-logo {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border-radius: 50%;
             background: white;
-            border: 2px solid var(--accent-pink);
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 15px;
+            padding: 3px;
+        }
+
+        /* --- personality --- */
+        .personality-section {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .personality-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, var(--soft-coral), var(--rose-blush));
+            color: white;
+            padding: 18px 35px;
+            border-radius: 25px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(223, 84, 69, 0.3);
+        }
+
+        .personality-icon {
+            font-size: 1.5rem;
+        }
+
+        .personality-desc {
+            font-style: italic;
+            font-size: 1rem;
+            margin-top: 10px;
+            color: var(--wine-dark);
+        }
+
+        /* --- traits section --- */
+        .traits-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .trait-tag {
+            background: white;
+            border: 2px solid var(--rose-blush);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+        }
+
+        /* --- quote section --- */
+        .quote-box {
+            background: linear-gradient(135deg, var(--wine-dark), var(--berry-deep));
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .quote-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* --- hobbies list --- */
+        .hobbies-list {
+            list-style: none;
+            padding: 0;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .hobby-item {
             display: flex;
             align-items: center;
             gap: 15px;
-            transition: transform 0.2s;
+            background: white;
+            margin: 12px 0;
+            padding: 15px 20px;
+            border-radius: 20px;
+            border: 2px solid var(--pink-sweet);
+            transition: all 0.3s ease;
         }
 
-        ul.hobbies-list li:hover {
-            transform: scale(1.02);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        .hobby-item:hover {
+            transform: translateX(5px);
+            border-color: var(--rose-blush);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        .icon {
-            font-size: 1.5rem;
-            background: var(--bg-pink);
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
+        .hobby-icon {
+            font-size: 1.8rem;
+            min-width: 45px;
+            text-align: center;
         }
 
-        /* Achievements */
+        .hobby-text strong {
+            color: var(--berry-deep);
+            font-size: 1.1rem;
+        }
+
+        .hobby-progress {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--wine-dark);
+            font-style: italic;
+        }
+
+        /* --- achievements --- */
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
         .achievement-item {
             display: flex;
             align-items: center;
             gap: 15px;
-            background: #fff;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            border-left: 5px solid var(--deep-red);
+            background: linear-gradient(135deg, #fff 0%, #fff5f7 100%);
+            margin: 15px 0;
+            padding: 18px;
+            border-radius: 20px;
+            border-left: 6px solid var(--berry-deep);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
         }
 
-        .award-icon {
-            font-size: 1.5rem;
+        .achievement-icon {
+            font-size: 2rem;
         }
 
-        /* Contact Section */
-        .contact-links {
+        .achievement-text strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--wine-dark);
+        }
+
+        .achievement-text small {
+            color: var(--soft-coral);
+        }
+
+        /* --- contacts --- */
+        .contact-section {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 3px dotted var(--soft-coral);
+        }
+
+        .contact-buttons {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-top: 20px;
         }
 
-        .btn {
-            background-color: var(--deep-red);
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--berry-deep);
             color: white;
             text-decoration: none;
-            padding: 12px 25px;
+            padding: 15px 28px;
             border-radius: 50px;
             font-weight: bold;
-            transition: background 0.3s;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 3px solid var(--wine-dark);
         }
 
-        .btn:hover {
-            background-color: var(--rose);
+        .contact-btn:hover {
+            background: var(--rose-pop);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(223, 84, 69, 0.4);
         }
 
+        /* --- decorative corner accents --- */
+        .container::before, .container::after {
+            content: '✦';
+            position: absolute;
+            color: var(--soft-coral);
+            font-size: 1.5rem;
+        }
+        
+        .container {
+            position: relative;
+        }
+
+        /* --- mobile responsive --- */
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px 15px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .profile-pic {
+                width: 170px;
+                height: 170px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         
-        <!-- 1. GREETING & PHOTO -->
+        <!-- 1. greeting & photo -->
         <div class="profile-section">
-            <h1>Hi, I'm Felishaa!</h1>
-            <!-- Replace 'your-photo.jpg' with your actual photo file name (e.g., me.jpg) -->
-            <img src="IMG_1984.jpeg" alt="My Photo" class="profile-pic">
-            <p>Welcome to my digital playground ♡</p>
+            <h1>hii, i'm <span style="color: var(--rose-pop);">Felisha</span>!</h1>
+            
+            <!-- replace 'your-photo.jpg' with your actual photo filename -->
+            <img src="IMG_1984.jpeg" alt="my photo" class="profile-pic">
+            
+            <p style="font-style: italic; color: var(--soft-coral);">welcome to my little corner of the internet ♡</p>
         </div>
 
-        <!-- 2. AGE & SCHOOL -->
-        <h2>About Me</h2>
-        <p style="text-align: center;">I am <strong>15</strong> years old.</p>
+        <!-- 2. age & school -->
+        <h2>about me</h2>
         
-        <div class="school-flex">
-            <!-- Replace 'school-logo.png' with your school logo file -->
-            <img src="logowdy.PNG" alt="School Logo" class="school-logo">
-            <span>SMA Wardaya</span>
+        <div class="info-block">
+            <div class="age-text"> i'm 15 years old ✨ 
+            i'm a student at: </div>
+            
+            <div class="school-display">
+                <!-- replace 'school-logo.png' with your school logo filename -->
+                <img src="logowdy.PNG" alt="school logo" class="school-logo">
+                <span>SMA Wardaya</span>
+            </div>
         </div>
 
-        <!-- 3. PERSONALITY -->
-        <h2>Who I Am</h2>
-        <div class="personality-box">
-            <span class="icon">⭐️</span> 
-            Personality: ENFP
-            <span class="icon">💖</span>
+        <!-- 3. personality & traits -->
+        <div class="personality-section">
+            <div class="personality-card">
+                <span class="personality-icon">💕</span>
+                <span>enfp</span>
+                <span class="personality-icon">✨</span>
+            </div>
+            <p class="personality-desc">"the campaigner" — enthusiastic, creative, likes adventure! and also an extrovert that also loves doing introvert things :p</p>
+            
+            <!-- new traits -->
+            <div class="traits-grid">
+                <span class="trait-tag">😊 optimistic most of the time</span>
+                <span class="trait-tag">⚡ very spontaneous!</span>
+                <span class="trait-tag">🇨🇳 interested in chinese (studying for hsk 5)</span>
+                <span class="trait-tag">🧪 love chemistry (but tryna survive it lol)</span>
+            </div>
         </div>
-        <p style="text-align: center; font-style: italic;">"The Campaigner" - Enthusiastic, creative, and social!</p>
 
-        <!-- 4. HOBBIES & PROGRESS -->
-        <h2>My Vibes & Skills</h2>
+        <!-- quote section -->
+        <div class="quote-box">
+            <p class="quote-text">"delulu is definitely the solulu~"</p>
+            <p style="font-size: 0.9rem; opacity: 0.8;">— yes, it's my niche mindset</p>
+        </div>
+
+        <!-- 4. hobbies & progress -->
+        <h2>what i love doing</h2>
+        
         <ul class="hobbies-list">
-            <li>
-                <div class="icon">📚</div>
-                <div><strong>Reading</strong>: Love flipping through novels and Wikipedia rabbit holes (a big fan of Tere Liye).</div>
+            <li class="hobby-item">
+                <span class="hobby-icon">📚</span>
+                <div class="hobby-text">
+                    <strong>reading</strong>
+                    <span class="hobby-progress">novels, wikipedia, articles — i love getting lost in stories and learning new things!</span>
+                </div>
             </li>
-            <li>
-                <div class="icon">♟️</div>
-                <div><strong>Chess</strong>: Just started playing a few months ago. Still learning the strategy!</div>
+            
+            <li class="hobby-item">
+                <span class="hobby-icon">♟️</span>
+                <div class="hobby-text">
+                    <strong>chess</strong>
+                    <span class="hobby-progress">started learning a few months ago. still figuring out the strategies!</span>
+                </div>
             </li>
-            <li>
-                <div class="icon">🧊</div>
-                <div><strong>Rubic's Cube</strong>: Trying to get my average down to sub-40 seconds.</div>
+            
+            <li class="hobby-item">
+                <span class="hobby-icon">🧩</span>
+                <div class="hobby-text">
+                    <strong>rubik's cube</strong>
+                    <span class="hobby-progress">hoping to get my average down to sub-40 seconds soon!</span>
+                </div>
             </li>
-            <li>
-                <div class="icon">🎥</div>
-                <div><strong>Videography & Editing</strong>: I love filming and editing clips to tell a story.</div>
+            
+            <li class="hobby-item">
+                <span class="hobby-icon">🎸</span>
+                <div class="hobby-text">
+                    <strong>playing guitar</strong>
+                    <span class="hobby-progress">learning simple chords and trying to play my favorite songs!</span>
+                </div>
             </li>
-            <li>
-                <div class="icon">🍋</div>
-                <div><strong>Content Creating</strong>: Currently on a brief break from posting on Lemon8, but will be back!</div>
+            
+            <li class="hobby-item">
+                <span class="hobby-icon">🎬</span>
+                <div class="hobby-text">
+                    <strong>videography & editing</strong>
+                    <span class="hobby-progress">i enjoy filming clips and editing them into something cool.</span>
+                </div>
+            </li>
+            
+            <li class="hobby-item">
+                <span class="hobby-icon">🍋</span>
+                <div class="hobby-text">
+                    <strong>content creating on lemon8</strong>
+                    <span class="hobby-progress">currently taking a little break from posting, but will be back for sure!! stay tunedd</span>
+                </div>
             </li>
         </ul>
 
-        <!-- 5. ACHIEVEMENTS -->
-        <h2>Wins & Achievements</h2>
-        <div class="achievement-item">
-            <!-- Replace with your award icon image if you have one, otherwise keep the emoji -->
-            <span class="award-icon">🏆</span> 
-            <div>
-                <strong>Pah Tsung Chinese Storytelling Competition 2024</strong><br>
-                <small>i won the 2nd place XD</small>
-            </div>
-        </div>
-        <div class="achievement-item">
-            <span class="award-icon">🥇</span> 
-            <div>
-                <strong>Olimpiade Rihand Creative XXIV (2025)</strong><br>
-                <small>achieved gold medal in both English and Chinese</small>
-            </div>
-        </div>
+        <!-- 5. achievements -->
+        <h2>my lil' achievements</h2>
+        
+        <ul class="achievements-list">
+            <li class="achievement-item">
+                <span class="achievement-icon">🏆</span>
+                <div class="achievement-text">
+                    <strong>Pah Tsung Mandarin Storytelling 2024</strong>
+                    <small>won 2nd place in junior high school category.</small>
+                </div>
+            </li>
+            
+            <li class="achievement-item">
+                <span class="achievement-icon">🥇</span>
+                <div class="achievement-text">
+                    <strong>Olimpiade Rihand Creative XXIV 2025</strong>
+                    <small>achieved gold medals on both English and Chinese.</small>
+                </div>
+            </li>
+            
+            <li class="achievement-item">
+                <span class="achievement-icon">🌟</span>
+                <div class="achievement-text">
+                    <strong>International Competitions & Assessments for Schools (ICAS) 2025</strong>
+                    <small>achieved Merit Award in English.</small>
+                </div>
+            </li>
+            
+            <li class="achievement-item">
+                <span class="achievement-icon">🏆</span>
+                <div class="achievement-text">
+                    <strong>ORC KREAZI 2025: Mandarin Storytelling</strong>
+                    <small>won 1st place in senior high school category.</small>
+                </div>
+            </li>
+        </ul>
 
-<div class="achievement-item">
-            <span class="award-icon">🏅</span> 
-            <div>
-                <strong>International Competitions and Assessments for Schools (2025)</strong><br>
-                <small>achieved Merit Award in English</small>
+        <!-- 6. contacts -->
+        <div class="contact-section">
+            <h2>let's be friends!</h2>
+            <p style="margin-bottom: 20px;">feel free to reach out or follow me on socials ♡</p>
+            
+            <div class="contact-buttons">
+                <!-- replace with your number: tel:09123456789 -->
+                <a href="tel:085693682268" class="contact-btn">📱 call me</a>
+                
+                <!-- replace with your email -->
+                <a href="mailto:fetuttu@gmail.com" class="contact-btn">✉️ email</a>
+                
+                <!-- replace with your instagram link -->
+                <a href="https://www.instagram.com/felxchaa?igsh=MTcxMndra3k3bXJ2Yw==" target="_blank" class="contact-btn">📸 instagram</a>
             </div>
-        </div>
-        
-        <!-- 6. CONTACTS -->
-        <h2>Let's Connect!!</h2>
-        <p style="text-align: center;">Slide into my DMs or contact me!</p>
-        
-        <div class="contact-links">
-            <!-- Replace the # with your actual link (e.g., tel:09123456789) -->
-            <a href="tel:085693682268" class="btn">📱 Call</a>
-            <a href="mailto:fetuttu@gmail.com" class="btn">✉️ Email</a>
-            <!-- Replace # with your Instagram URL -->
-            <a href="https://www.instagram.com/felxchaa?igsh=MTcxMndra3k3bXJ2Yw==" target="_blank" class="btn">📸 IG</a>
         </div>
 
     </div>
